@@ -4,44 +4,65 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Emergency Information</title>
-    <script>
-        // Optional password prompt for demo access control
-        var password = prompt("Enter demo password:");
-        if (password !== "YourDemoPassword") {
-            document.body.innerHTML = "<h2>Access denied.</h2>";
-        } else {
-            document.addEventListener("DOMContentLoaded", verifyProfessional);
-        }
 
-        // Function to confirm if the user is a healthcare professional
-        function verifyProfessional() {
-            const isProfessional = confirm("Are you a healthcare professional?");
-            if (isProfessional) {
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    
+    <style>
+        body { font-family: Arial, sans-serif; }
+        .flag { width: 50px; margin-top: 20px; }
+        .content { margin-top: 50px; }
+        #professionalInfo { display: none; }
+    </style>
+
+    <script>
+        // Function to handle the "I am a professional" button click
+        function showProfessionalInfo() {
+            const password = prompt("Enter professional access password:");
+            if (password === "YourDemoPassword") { // Replace with your desired password
                 document.getElementById("professionalInfo").style.display = "block";
             } else {
-                document.getElementById("basicInfo").style.display = "block";
+                alert("Incorrect password. Access denied.");
             }
         }
     </script>
-    <style>
-        body { font-family: Arial, sans-serif; text-align: center; margin-top: 50px; }
-        #basicInfo, #professionalInfo { display: none; }
-        h2 { color: #333; }
-    </style>
 </head>
-<body>
-    <div id="basicInfo">
-        <h2>Basic Information</h2>
-        <p>Name: John Doe</p>
-        <p>Emergency Contact: +123456789</p>
+<body class="text-center">
+
+    <!-- Tunisian Flag -->
+    <img src="https://upload.wikimedia.org/wikipedia/commons/c/ce/Flag_of_Tunisia.svg" alt="Tunisian Flag" class="flag">
+
+    <div class="container content">
+        <!-- Basic Information Section -->
+        <div id="basicInfo" class="card border-primary mb-3" style="max-width: 500px; margin: auto;">
+            <div class="card-header bg-primary text-white">Basic Information</div>
+            <div class="card-body text-left">
+                <p><strong>Name:</strong> John Doe</p>
+                <p><strong>Last Name:</strong> Doe</p>
+                <p><strong>Address:</strong> 123 Main St</p>
+                <p><strong>Emergency Contact:</strong> +123456789</p>
+                <p><strong>Comment:</strong> Please contact immediately in case of emergency.</p>
+            </div>
+        </div>
+
+        <!-- Professional Access Button -->
+        <button onclick="showProfessionalInfo()" class="btn btn-danger mt-3">I am a professional</button>
+
+        <!-- Professional Information Section (hidden by default) -->
+        <div id="professionalInfo" class="card border-danger mt-3" style="max-width: 500px; margin: auto;">
+            <div class="card-header bg-danger text-white">Medical Information</div>
+            <div class="card-body text-left">
+                <p><strong>Known Illnesses:</strong> Diabetes, Hypertension</p>
+                <p><strong>Medications:</strong> Metformin, Lisinopril</p>
+                <p><strong>Allergies:</strong> Penicillin</p>
+                <p><strong>Blood Type:</strong> O+</p>
+            </div>
+        </div>
     </div>
 
-    <div id="professionalInfo">
-        <h2>Medical Information</h2>
-        <p>Name: John Doe</p>
-        <p>Address: 123 Main St</p>
-        <p>Known Illnesses: Diabetes, Hypertension</p>
-        <p>Emergency Contact: +123456789</p>
-    </div>
+    <!-- Bootstrap JS and dependencies (optional for Bootstrap components) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
