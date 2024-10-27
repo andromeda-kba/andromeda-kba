@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emergency Information</title>
+    <script>
+        // Optional password prompt for demo access control
+        var password = prompt("Enter demo password:");
+        if (password !== "YourDemoPassword") {
+            document.body.innerHTML = "<h2>Access denied.</h2>";
+        } else {
+            document.addEventListener("DOMContentLoaded", verifyProfessional);
+        }
+
+        // Function to confirm if the user is a healthcare professional
+        function verifyProfessional() {
+            const isProfessional = confirm("Are you a healthcare professional?");
+            if (isProfessional) {
+                document.getElementById("professionalInfo").style.display = "block";
+            } else {
+                document.getElementById("basicInfo").style.display = "block";
+            }
+        }
+    </script>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; margin-top: 50px; }
+        #basicInfo, #professionalInfo { display: none; }
+        h2 { color: #333; }
+    </style>
+</head>
+<body>
+    <div id="basicInfo">
+        <h2>Basic Information</h2>
+        <p>Name: John Doe</p>
+        <p>Emergency Contact: +123456789</p>
+    </div>
+
+    <div id="professionalInfo">
+        <h2>Medical Information</h2>
+        <p>Name: John Doe</p>
+        <p>Address: 123 Main St</p>
+        <p>Known Illnesses: Diabetes, Hypertension</p>
+        <p>Emergency Contact: +123456789</p>
+    </div>
+</body>
+</html>
