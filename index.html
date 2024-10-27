@@ -16,18 +16,100 @@
     </style>
 
     <script>
+        // Translations for each field in different languages
+        const translations = {
+            en: {
+                basicInfoHeader: "Basic Information",
+                name: "Name",
+                lastName: "Last Name",
+                address: "Address",
+                emergencyContact: "Emergency Contact",
+                comment: "Comment",
+                professionalButton: "I am a professional",
+                professionalInfoHeader: "Medical Information",
+                illnesses: "Known Illnesses",
+                medications: "Medications",
+                allergies: "Allergies",
+                bloodType: "Blood Type",
+                alertAccessDenied: "Incorrect password. Access denied."
+            },
+            fr: {
+                basicInfoHeader: "Informations de Base",
+                name: "Nom",
+                lastName: "Prénom",
+                address: "Adresse",
+                emergencyContact: "Contact d'Urgence",
+                comment: "Commentaire",
+                professionalButton: "Je suis un professionnel",
+                professionalInfoHeader: "Informations Médicales",
+                illnesses: "Maladies Connues",
+                medications: "Médicaments",
+                allergies: "Allergies",
+                bloodType: "Groupe Sanguin",
+                alertAccessDenied: "Mot de passe incorrect. Accès refusé."
+            },
+            ar: {
+                basicInfoHeader: "معلومات أساسية",
+                name: "الاسم",
+                lastName: "اللقب",
+                address: "العنوان",
+                emergencyContact: "جهة اتصال للطوارئ",
+                comment: "تعليق",
+                professionalButton: "أنا محترف",
+                professionalInfoHeader: "معلومات طبية",
+                illnesses: "الأمراض المعروفة",
+                medications: "الأدوية",
+                allergies: "الحساسية",
+                bloodType: "فصيلة الدم",
+                alertAccessDenied: "كلمة المرور غير صحيحة. تم رفض الوصول."
+            }
+        };
+
+        // Function to change language based on selection
+        function changeLanguage(language) {
+            const textElements = translations[language];
+            document.getElementById("basicInfoHeader").textContent = textElements.basicInfoHeader;
+            document.getElementById("name").textContent = textElements.name + ": John";
+            document.getElementById("lastName").textContent = textElements.lastName + ": Doe";
+            document.getElementById("address").textContent = textElements.address + ": 123 Main St";
+            document.getElementById("emergencyContact").textContent = textElements.emergencyContact + ": +123456789";
+            document.getElementById("comment").textContent = textElements.comment + ": Please contact immediately in case of emergency.";
+            document.getElementById("professionalButton").textContent = textElements.professionalButton;
+            document.getElementById("professionalInfoHeader").textContent = textElements.professionalInfoHeader;
+            document.getElementById("illnesses").textContent = textElements.illnesses + ": Diabetes, Hypertension";
+            document.getElementById("medications").textContent = textElements.medications + ": Metformin, Lisinopril";
+            document.getElementById("allergies").textContent = textElements.allergies + ": Penicillin";
+            document.getElementById("bloodType").textContent = textElements.bloodType + ": O+";
+        }
+
         // Function to handle the "I am a professional" button click
         function showProfessionalInfo() {
             const password = prompt("Enter professional access password:");
-            if (password === "0000") { // Replace with your desired password
+            if (password === "YourDemoPassword") { // Replace with your desired password
                 document.getElementById("professionalInfo").style.display = "block";
             } else {
-                alert("Incorrect password. Access denied.");
+                alert(translations[currentLang].alertAccessDenied);
             }
         }
+
+        let currentLang = "en"; // Default language
+
+        // Initialize default language
+        document.addEventListener("DOMContentLoaded", function() {
+            changeLanguage(currentLang);
+        });
     </script>
 </head>
 <body class="text-center">
+
+    <!-- Language Selection Dropdown -->
+    <div class="mt-3">
+        <select onchange="changeLanguage(this.value); currentLang = this.value;" class="custom-select w-auto">
+            <option value="en" selected>English</option>
+            <option value="fr">Français</option>
+            <option value="ar">العربية</option>
+        </select>
+    </div>
 
     <!-- Tunisian Flag -->
     <img src="https://upload.wikimedia.org/wikipedia/commons/c/ce/Flag_of_Tunisia.svg" alt="Tunisian Flag" class="flag">
@@ -35,27 +117,27 @@
     <div class="container content">
         <!-- Basic Information Section -->
         <div id="basicInfo" class="card border-primary mb-3" style="max-width: 500px; margin: auto;">
-            <div class="card-header bg-primary text-white">Basic Information</div>
+            <div id="basicInfoHeader" class="card-header bg-primary text-white"></div>
             <div class="card-body text-left">
-                <p><strong>Name:</strong> John Doe</p>
-                <p><strong>Last Name:</strong> Doe</p>
-                <p><strong>Address:</strong> 123 Main St</p>
-                <p><strong>Emergency Contact:</strong> +123456789</p>
-                <p><strong>Comment:</strong> Please contact immediately in case of emergency.</p>
+                <p id="name"></p>
+                <p id="lastName"></p>
+                <p id="address"></p>
+                <p id="emergencyContact"></p>
+                <p id="comment"></p>
             </div>
         </div>
 
         <!-- Professional Access Button -->
-        <button onclick="showProfessionalInfo()" class="btn btn-danger mt-3">I am a professional</button>
+        <button onclick="showProfessionalInfo()" id="professionalButton" class="btn btn-danger mt-3"></button>
 
         <!-- Professional Information Section (hidden by default) -->
         <div id="professionalInfo" class="card border-danger mt-3" style="max-width: 500px; margin: auto;">
-            <div class="card-header bg-danger text-white">Medical Information</div>
+            <div id="professionalInfoHeader" class="card-header bg-danger text-white"></div>
             <div class="card-body text-left">
-                <p><strong>Known Illnesses:</strong> Diabetes, Hypertension</p>
-                <p><strong>Medications:</strong> Metformin, Lisinopril</p>
-                <p><strong>Allergies:</strong> Penicillin</p>
-                <p><strong>Blood Type:</strong> O+</p>
+                <p id="illnesses"></p>
+                <p id="medications"></p>
+                <p id="allergies"></p>
+                <p id="bloodType"></p>
             </div>
         </div>
     </div>
