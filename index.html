@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,6 +13,7 @@
         .flag { width: 50px; margin-top: 20px; }
         .content { margin-top: 50px; }
         #professionalInfo { display: none; }
+        .text-right { direction: rtl; }
     </style>
 
     <script>
@@ -80,6 +81,9 @@
             document.getElementById("medications").textContent = textElements.medications + ": Metformin, Lisinopril";
             document.getElementById("allergies").textContent = textElements.allergies + ": Penicillin";
             document.getElementById("bloodType").textContent = textElements.bloodType + ": O+";
+
+            // Apply right-aligned text if Arabic is selected
+            document.body.classList.toggle("text-right", language === "ar");
         }
 
         // Function to handle the "I am a professional" button click
@@ -92,7 +96,7 @@
             }
         }
 
-        let currentLang = "en"; // Default language
+        let currentLang = "ar"; // Default language
 
         // Initialize default language
         document.addEventListener("DOMContentLoaded", function() {
@@ -100,14 +104,14 @@
         });
     </script>
 </head>
-<body class="text-center">
+<body class="text-center text-right">
 
     <!-- Language Selection Dropdown -->
     <div class="mt-3">
         <select onchange="changeLanguage(this.value); currentLang = this.value;" class="custom-select w-auto">
-            <option value="en" selected>English</option>
+            <option value="ar" selected>العربية</option>
+            <option value="en">English</option>
             <option value="fr">Français</option>
-            <option value="ar">العربية</option>
         </select>
     </div>
 
