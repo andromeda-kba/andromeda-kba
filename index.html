@@ -166,4 +166,79 @@
             document.getElementById("addressLabel").textContent = textElements.address;
             document.getElementById("addressValue").textContent = textElements.addressValue;
             document.getElementById("emergencyContactLabel").textContent = textElements.emergencyContact;
-            doc
+            document.getElementById("emergencyContactValue").textContent = textElements.emergencyContactValue;
+            document.getElementById("commentLabel").textContent = textElements.comment;
+            document.getElementById("commentValue").textContent = textElements.commentValue;
+            document.getElementById("illnessesLabel").textContent = textElements.illnesses;
+            document.getElementById("illnessesValue").textContent = textElements.illnessesValue;
+            document.getElementById("medicationsLabel").textContent = textElements.medications;
+            document.getElementById("medicationsValue").textContent = textElements.medicationsValue;
+            document.getElementById("allergiesLabel").textContent = textElements.allergies;
+            document.getElementById("allergiesValue").textContent = textElements.allergiesValue;
+            document.getElementById("bloodTypeLabel").textContent = textElements.bloodType;
+            document.getElementById("bloodTypeValue").textContent = textElements.bloodTypeValue;
+
+            document.body.classList.toggle("rtl", language === "ar");
+            document.body.classList.toggle("ltr", language !== "ar");
+        }
+
+        document.addEventListener("DOMContentLoaded", function() {
+            changeLanguage("ar");
+        });
+    </script>
+</head>
+
+<body class="text-center rtl">
+    <div>
+        <select class="language-select" onchange="changeLanguage(this.value);">
+            <option value="ar" selected>العربية</option>
+            <option value="en">English</option>
+            <option value="fr">Français</option>
+        </select>
+    </div>
+
+    <img src="https://upload.wikimedia.org/wikipedia/commons/c/ce/Flag_of_Tunisia.svg" alt="Tunisian Flag" class="flag">
+
+    <div class="container mt-4">
+        <div id="basicInfo" class="card">
+            <div class="card-header bg-primary" id="basicInfoHeader">معلومات أساسية</div>
+            <div class="card-body">
+                <!-- Dynamic content for each row -->
+                <div class="row-content"><div id="nameLabel"></div><div id="nameValue"></div></div>
+                <div class="row-content"><div id="lastNameLabel"></div><div id="lastNameValue"></div></div>
+                <div class="row-content"><div id="addressLabel"></div><div id="addressValue"></div></div>
+                <div class="row-content"><div id="emergencyContactLabel"></div><div id="emergencyContactValue"></div></div>
+                <div class="row-content"><div id="commentLabel"></div><div id="commentValue"></div></div>
+            </div>
+        </div>
+
+        <button id="professionalButton" onclick="showProfessionalInfo();">معلومات طبية</button>
+
+        <div id="professionalInfo" class="card mt-3" style="display: none;">
+            <div class="card-header bg-danger" id="professionalInfoHeader">معلومات طبية</div>
+            <div class="card-body">
+                <div class="row-content"><div id="illnessesLabel"></div><div id="illnessesValue"></div></div>
+                <div class="row-content"><div id="medicationsLabel"></div><div id="medicationsValue"></div></div>
+                <div class="row-content"><div id="allergiesLabel"></div><div id="allergiesValue"></div></div>
+                <div class="row-content"><div id="bloodTypeLabel"></div><div id="bloodTypeValue"></div></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showProfessionalInfo() {
+            let password = prompt("Enter Password:");
+            if (password === "1234") {
+                document.getElementById("professionalInfo").style.display = "block";
+            } else {
+                alert(translations[document.querySelector(".language-select").value].alertAccessDenied);
+            }
+        }
+    </script>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
