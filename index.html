@@ -9,7 +9,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
     <!-- Bootstrap CSS for basic layout structure -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-
     <style>
         body {
             font-family: 'Roboto', sans-serif;
@@ -22,6 +21,11 @@
             border-radius: 12px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             overflow: hidden;
+            position: relative;
+            background-image: url('D7571412-A5EE-4724-8A8C-085831E662EB.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
         }
         .card-header {
             font-weight: 500;
@@ -31,7 +35,7 @@
             color: #fff;
         }
         .content-text { padding: 10px 0; font-size: 1rem; }
-        .font-weight-bold { opacity: 0.8; }
+        .font-weight-bold { opacity: 1; } /* Made text opaque */
         .ltr .content-text { text-align: left; }
         .rtl .content-text { text-align: right; }
         .rtl .row-content { flex-direction: row-reverse; }
@@ -43,16 +47,6 @@
             transition: background 0.2s ease-in-out;
         }
         .row-content:hover { background-color: #f0f4f8; }
-        
-        /* Background logo styling */
-        .card {
-            position: relative;
-            background-image: url('D7571412-A5EE-4724-8A8C-085831E662EB.png');
-            background-size: 200px;
-            background-position: center;
-            background-repeat: no-repeat;
-            opacity: 0.5; /* Control opacity for a soft look */
-        }
         
         /* Modern button styles */
         #professionalButton {
