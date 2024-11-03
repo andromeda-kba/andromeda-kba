@@ -199,31 +199,32 @@
 
     <img src="https://upload.wikimedia.org/wikipedia/commons/c/ce/Flag_of_Tunisia.svg" alt="Tunisian Flag" class="flag">
 
-    <div class="container mt-4">
-        <div id="basicInfo" class="card">
-            <div class="card-header bg-primary" id="basicInfoHeader">معلومات أساسية</div>
-            <div class="card-body">
-                <!-- Dynamic content for each row -->
-                <div class="row-content"><div id="nameLabel"><strong></strong></div><div id="nameValue"></div></div>
-                <div class="row-content"><div id="lastNameLabel"></div><div id="lastNameValue"></div></div>
-                <div class="row-content"><div id="addressLabel"></div><div id="addressValue"></div></div>
-                <div class="row-content"><div id="emergencyContactLabel"></div><div id="emergencyContactValue"></div></div>
-                <div class="row-content"><div id="commentLabel"></div><div id="commentValue"></div></div>
-            </div>
-        </div>
-
-        <button id="professionalButton" onclick="showProfessionalInfo();">معلومات طبية</button>
-
-        <div id="professionalInfo" class="card mt-3" style="display: none;">
-            <div class="card-header bg-danger" id="professionalInfoHeader">معلومات طبية</div>
-            <div class="card-body">
-                <div class="row-content"><div id="illnessesLabel"></div><div id="illnessesValue"></div></div>
-                <div class="row-content"><div id="medicationsLabel"></div><div id="medicationsValue"></div></div>
-                <div class="row-content"><div id="allergiesLabel"></div><div id="allergiesValue"></div></div>
-                <div class="row-content"><div id="bloodTypeLabel"></div><div id="bloodTypeValue"></div></div>
-            </div>
+<div class="container mt-4">
+    <div id="basicInfo" class="card">
+        <div class="card-header bg-primary" id="basicInfoHeader">معلومات أساسية</div>
+        <div class="card-body">
+            <!-- Dynamic content for each row -->
+            <div class="row-content"><div id="nameLabel"><strong></strong></div><div id="nameValue"></div></div>
+            <div class="row-content"><div id="lastNameLabel"><strong></strong></div><div id="lastNameValue"></div></div>
+            <div class="row-content"><div id="addressLabel"><strong></strong></div><div id="addressValue"></div></div>
+            <div class="row-content"><div id="emergencyContactLabel"><strong></strong></div><div id="emergencyContactValue"></div></div>
+            <div class="row-content"><div id="commentLabel"><strong></strong></div><div id="commentValue"></div></div>
         </div>
     </div>
+
+    <button id="professionalButton" onclick="showProfessionalInfo();">معلومات طبية</button>
+
+    <div id="professionalInfo" class="card mt-3" style="display: none;">
+        <div class="card-header bg-danger" id="professionalInfoHeader">معلومات طبية</div>
+        <div class="card-body">
+            <div class="row-content"><div id="illnessesLabel"><strong></strong></div><div id="illnessesValue"></div></div>
+            <div class="row-content"><div id="medicationsLabel"><strong></strong></div><div id="medicationsValue"></div></div>
+            <div class="row-content"><div id="allergiesLabel"><strong></strong></div><div id="allergiesValue"></div></div>
+            <div class="row-content"><div id="bloodTypeLabel"><strong></strong></div><div id="bloodTypeValue"></div></div>
+        </div>
+    </div>
+</div>
+
 
     <script>
         function showProfessionalInfo() {
