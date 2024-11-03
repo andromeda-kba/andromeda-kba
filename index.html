@@ -9,6 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
     <!-- Bootstrap CSS for basic layout structure -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
     <style>
         body {
             font-family: 'Roboto', sans-serif;
@@ -21,11 +22,6 @@
             border-radius: 12px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             overflow: hidden;
-            position: relative;
-            background-image: url('D7571412-A5EE-4724-8A8C-085831E662EB.png');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
         }
         .card-header {
             font-weight: 500;
@@ -35,7 +31,7 @@
             color: #fff;
         }
         .content-text { padding: 10px 0; font-size: 1rem; }
-        .font-weight-bold { opacity: 1; }
+        .font-weight-bold { opacity: 0.8; }
         .ltr .content-text { text-align: left; }
         .rtl .content-text { text-align: right; }
         .rtl .row-content { flex-direction: row-reverse; }
@@ -204,62 +200,45 @@
     <img src="https://upload.wikimedia.org/wikipedia/commons/c/ce/Flag_of_Tunisia.svg" alt="Tunisian Flag" class="flag">
 
     <div class="container mt-4">
-        <div class="card">
-            <div class="card-header" id="basicInfoHeader">معلومات أساسية</div>
-            <div class="content">
-                <div class="row-content">
-                    <div class="font-weight-bold content-text" id="nameLabel">الاسم</div>
-                    <div class="content-text" id="nameValue">فلان</div>
-                </div>
-                <div class="row-content">
-                    <div class="font-weight-bold content-text" id="lastNameLabel">اللقب</div>
-                    <div class="content-text" id="lastNameValue">بن فلان</div>
-                </div>
-                <div class="row-content">
-                    <div class="font-weight-bold content-text" id="addressLabel">العنوان</div>
-                    <div class="content-text" id="addressValue">23 بنزرت - تونس</div>
-                </div>
-                <div class="row-content">
-                    <div class="font-weight-bold content-text" id="emergencyContactLabel">جهة اتصال للطوارئ</div>
-                    <div class="content-text" id="emergencyContactValue">+123456789</div>
-                </div>
-                <div class="row-content">
-                    <div class="font-weight-bold content-text" id="commentLabel">التعليق</div>
-                    <div class="content-text" id="commentValue">يرجى الاتصال على الفور في حالة الطوارئ.</div>
-                </div>
+        <div id="basicInfo" class="card">
+            <div class="card-header bg-primary" id="basicInfoHeader">معلومات أساسية</div>
+            <div class="card-body">
+                <!-- Dynamic content for each row -->
+                <div class="row-content"><div id="nameLabel"></div><div id="nameValue"></div></div>
+                <div class="row-content"><div id="lastNameLabel"></div><div id="lastNameValue"></div></div>
+                <div class="row-content"><div id="addressLabel"></div><div id="addressValue"></div></div>
+                <div class="row-content"><div id="emergencyContactLabel"></div><div id="emergencyContactValue"></div></div>
+                <div class="row-content"><div id="commentLabel"></div><div id="commentValue"></div></div>
             </div>
+        </div>
 
-            <button id="professionalButton" onclick="showProfessionalInfo();">معلومات طبية</button>
+        <button id="professionalButton" onclick="showProfessionalInfo();">معلومات طبية</button>
 
-            <div class="card mt-3" id="professionalInfo" style="display: none;">
-                <div class="card-header" id="professionalInfoHeader">معلومات طبية</div>
-                <div class="content">
-                    <div class="row-content">
-                        <div class="font-weight-bold content-text" id="illnessesLabel">الأمراض المعروفة</div>
-                        <div class="content-text" id="illnessesValue">السكري، ارتفاع ضغط الدم</div>
-                    </div>
-                    <div class="row-content">
-                        <div class="font-weight-bold content-text" id="medicationsLabel">الأدوية</div>
-                        <div class="content-text" id="medicationsValue">ميتفورمين، ليسينوبريل</div>
-                    </div>
-                    <div class="row-content">
-                        <div class="font-weight-bold content-text" id="allergiesLabel">الحساسية</div>
-                        <div class="content-text" id="allergiesValue">البنسلين</div>
-                    </div>
-                    <div class="row-content">
-                        <div class="font-weight-bold content-text" id="bloodTypeLabel">فصيلة الدم</div>
-                        <div class="content-text" id="bloodTypeValue">O+</div>
-                    </div>
-                </div>
+        <div id="professionalInfo" class="card mt-3" style="display: none;">
+            <div class="card-header bg-danger" id="professionalInfoHeader">معلومات طبية</div>
+            <div class="card-body">
+                <div class="row-content"><div id="illnessesLabel"></div><div id="illnessesValue"></div></div>
+                <div class="row-content"><div id="medicationsLabel"></div><div id="medicationsValue"></div></div>
+                <div class="row-content"><div id="allergiesLabel"></div><div id="allergiesValue"></div></div>
+                <div class="row-content"><div id="bloodTypeLabel"></div><div id="bloodTypeValue"></div></div>
             </div>
         </div>
     </div>
 
     <script>
         function showProfessionalInfo() {
-            var professionalInfo = document.getElementById("professionalInfo");
-            professionalInfo.style.display = professionalInfo.style.display === "none" ? "block" : "none";
+            let password = prompt("Enter Password:");
+            if (password === "1234") {
+                document.getElementById("professionalInfo").style.display = "block";
+            } else {
+                alert(translations[document.querySelector(".language-select").value].alertAccessDenied);
+            }
         }
     </script>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
