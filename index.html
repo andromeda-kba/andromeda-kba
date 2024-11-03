@@ -9,7 +9,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
     <!-- Bootstrap CSS for basic layout structure -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-
     <style>
         body {
             font-family: 'Roboto', sans-serif;
@@ -36,7 +35,7 @@
             color: #fff;
         }
         .content-text { padding: 10px 0; font-size: 1rem; }
-        .font-weight-bold { font-weight: bold; }
+        .font-weight-bold { opacity: 1; } /* Made text opaque */
         .ltr .content-text { text-align: left; }
         .rtl .content-text { text-align: right; }
         .rtl .row-content { flex-direction: row-reverse; }
@@ -86,9 +85,76 @@
 
     <script>
         const translations = {
-            en: { /* English translations */ },
-            fr: { /* French translations */ },
-            ar: { /* Arabic translations */ }
+            en: {
+                basicInfoHeader: "Basic Information",
+                name: "Name",
+                lastName: "Last Name",
+                address: "Address",
+                emergencyContact: "Emergency Contact",
+                comment: "Comment",
+                professionalButton: "Medical Information",
+                professionalInfoHeader: "Medical Information",
+                illnesses: "Known Illnesses",
+                medications: "Medications",
+                allergies: "Allergies",
+                bloodType: "Blood Type",
+                alertAccessDenied: "Incorrect password. Access denied.",
+                nameValue: "Foulen",
+                lastNameValue: "Ben Foulen",
+                addressValue: "23 Bizerte - Tunisia",
+                emergencyContactValue: "+123456789",
+                commentValue: "Please contact immediately in case of emergency.",
+                illnessesValue: "Diabetes, Hypertension",
+                medicationsValue: "Metformin, Lisinopril",
+                allergiesValue: "Penicillin",
+                bloodTypeValue: "O+"
+            },
+            fr: {
+                basicInfoHeader: "Informations de Base",
+                name: "Nom",
+                lastName: "Prénom",
+                address: "Adresse",
+                emergencyContact: "Contact d'Urgence",
+                comment: "Commentaire",
+                professionalButton: "Informations Médicales",
+                professionalInfoHeader: "Informations Médicales",
+                illnesses: "Maladies Connues",
+                medications: "Médicaments",
+                allergies: "Allergies",
+                bloodType: "Groupe Sanguin",
+                nameValue: "Foulen",
+                lastNameValue: "Ben Foulen",
+                addressValue: "23 Bizerte - Tunisie",
+                emergencyContactValue: "+123456789",
+                commentValue: "Veuillez contacter immédiatement en cas d'urgence.",
+                illnessesValue: "Diabète, Hypertension",
+                medicationsValue: "Metformin, Lisinopril",
+                allergiesValue: "Pénicilline",
+                bloodTypeValue: "O+"
+            },
+            ar: {
+                basicInfoHeader: "معلومات أساسية",
+                name: "الاسم",
+                lastName: "اللقب",
+                address: "العنوان",
+                emergencyContact: "جهة اتصال للطوارئ",
+                comment: "التعليق",
+                professionalButton: "معلومات طبية",
+                professionalInfoHeader: "معلومات طبية",
+                illnesses: "الأمراض المعروفة",
+                medications: "الأدوية",
+                allergies: "الحساسية",
+                bloodType: "فصيلة الدم",
+                nameValue: "فلان",
+                lastNameValue: "بن فلان",
+                addressValue: "23 بنزرت - تونس",
+                emergencyContactValue: "+123456789",
+                commentValue: "يرجى الاتصال على الفور في حالة الطوارئ.",
+                illnessesValue: "السكري، ارتفاع ضغط الدم",
+                medicationsValue: "ميتفورمين، ليسينوبريل",
+                allergiesValue: "البنسلين",
+                bloodTypeValue: "O+"
+            }
         };
 
         function changeLanguage(language) {
@@ -141,12 +207,12 @@
         <div id="basicInfo" class="card">
             <div class="card-header bg-primary" id="basicInfoHeader">معلومات أساسية</div>
             <div class="card-body">
-                <!-- Dynamic content for each row with bold labels -->
-                <div class="row-content"><span id="nameLabel" class="font-weight-bold"></span><div id="nameValue"></div></div>
-                <div class="row-content"><span id="lastNameLabel" class="font-weight-bold"></span><div id="lastNameValue"></div></div>
-                <div class="row-content"><span id="addressLabel" class="font-weight-bold"></span><div id="addressValue"></div></div>
-                <div class="row-content"><span id="emergencyContactLabel" class="font-weight-bold"></span><div id="emergencyContactValue"></div></div>
-                <div class="row-content"><span id="commentLabel" class="font-weight-bold"></span><div id="commentValue"></div></div>
+                <!-- Dynamic content for each row -->
+                <div class="row-content"><span id="nameValue" class="font-weight-bold"></span><div id="nameValue"></div></div>
+                <div class="row-content"><span id="lastNameValue" class="font-weight-bold"></span><div id="lastNameValue"></div></div>
+                <div class="row-content"><span id="addressValue" class="font-weight-bold"></span>><div id="addressValue"></div></div>
+                <div class="row-content"><span id="emergencyContactValue" class="font-weight-bold"></span><div id="emergencyContactValue"></div></div>
+                <div class="row-content"><span id="commentValue" class="font-weight-bold"></span><div id="commentValue"></div></div>
             </div>
         </div>
 
@@ -155,10 +221,10 @@
         <div id="professionalInfo" class="card mt-3" style="display: none;">
             <div class="card-header bg-danger" id="professionalInfoHeader">معلومات طبية</div>
             <div class="card-body">
-                <div class="row-content"><span id="illnessesLabel" class="font-weight-bold"></span><div id="illnessesValue"></div></div>
-                <div class="row-content"><span id="medicationsLabel" class="font-weight-bold"></span><div id="medicationsValue"></div></div>
-                <div class="row-content"><span id="allergiesLabel" class="font-weight-bold"></span><div id="allergiesValue"></div></div>
-                <div class="row-content"><span id="bloodTypeLabel" class="font-weight-bold"></span><div id="bloodTypeValue"></div></div>
+                <div class="row-content"><div id="illnessesLabel"></div><div id="illnessesValue"></div></div>
+                <div class="row-content"><div id="medicationsLabel"></div><div id="medicationsValue"></div></div>
+                <div class="row-content"><div id="allergiesLabel"></div><div id="allergiesValue"></div></div>
+                <div class="row-content"><div id="bloodTypeLabel"></div><div id="bloodTypeValue"></div></div>
             </div>
         </div>
     </div>
@@ -176,7 +242,7 @@
 
     <!-- Bootstrap JS and dependencies -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
