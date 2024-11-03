@@ -8,41 +8,82 @@
     <!-- Bootstrap CSS -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     
-    <style>
-        body { font-family: Arial, sans-serif; }
-        .flag { width: 50px; margin-top: 20px; }
-        .content { margin-top: 50px; }
-        
-        /* Background logo styling */
-        .card {
-            position: relative;
-            background-image: url('D7571412-A5EE-4724-8A8C-085831E662EB.png');
-            background-size: 200px;
-            background-position: center;
-            background-repeat: no-repeat;
-            opacity: 0.1; /* Control opacity for a soft look */
-        }
-        
-        /* Adjust grid layout for field and content alignment */
-        .row p {
-            margin: 0;
-        }
-        .field-label { 
-            font-weight: bold; 
-            text-align: end;
-            padding-right: 10px;
-            color: #444;
-        }
-        .field-value { 
-            text-align: start;
-            padding-left: 10px;
-            color: #333;
-        }
+<style>
+    body {
+        font-family: 'Roboto', sans-serif;
+        background-color: #f4f7f6;
+        color: #333;
+        background-image: url('D7571412-A5EE-4724-8A8C-085831E662EB.png');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-attachment: fixed;
+        opacity: 0.1;
+    }
+    .container { max-width: 500px; }
+    .flag { width: 40px; margin-top: 20px; }
+    .card {
+        border-radius: 12px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        background-color: rgba(255, 255, 255, 0.85); /* Semi-transparent background for readability */
+    }
+    .card-header {
+        font-weight: 500;
+        text-align: center;
+        font-size: 1.2em;
+        padding: 15px 0;
+        color: #fff;
+    }
+    .content-text { padding: 10px 0; font-size: 1rem; }
+    .font-weight-bold { opacity: 0.8; }
+    .ltr .content-text { text-align: left; }
+    .rtl .content-text { text-align: right; }
+    .rtl .row-content { flex-direction: row-reverse; }
+    .row-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 8px 15px;
+        transition: background 0.2s ease-in-out;
+    }
+    .row-content:hover { background-color: #f0f4f8; }
 
-        /* Right-to-left (RTL) styling for Arabic content */
-        .rtl .field-label { text-align: start; }
-        .rtl .field-value { text-align: end; }
-    </style>
+    /* Modern button styles */
+    #professionalButton {
+        margin-top: 20px;
+        border: none;
+        padding: 10px 20px;
+        font-size: 1rem;
+        font-weight: 500;
+        border-radius: 20px;
+        background-color: #007bff;
+        color: #fff;
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+        transition: background-color 0.3s ease;
+    }
+    #professionalButton:hover { background-color: #0056b3; }
+
+    /* Styling for the select dropdown */
+    .language-select {
+        margin-top: 20px;
+        padding: 8px 12px;
+        font-size: 1rem;
+        border-radius: 8px;
+        border: 1px solid #ddd;
+        outline: none;
+        cursor: pointer;
+        transition: border-color 0.3s ease;
+    }
+    .language-select:focus { border-color: #007bff; }
+
+    /* Media query for smaller screens */
+    @media (max-width: 576px) {
+        .row-content { flex-direction: column; }
+        .flag { width: 30px; }
+    }
+</style>
+
 
     <script>
         const translations = {
