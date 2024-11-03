@@ -18,36 +18,11 @@
         }
         .container { max-width: 500px; }
         .flag { width: 40px; margin-top: 20px; }
-        
         .card {
-            position: relative;
             border-radius: 12px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             overflow: hidden;
         }
-
-        /* Background logo styling using ::before */
-        .card::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-image: url('D7571412-A5EE-4724-8A8C-085831E662EB.png');
-            background-size: 200px;
-            background-position: center;
-            background-repeat: no-repeat;
-            opacity: 0.1; /* Adjust this value to make the background more or less faded */
-            z-index: 1;
-        }
-
-        .card-body,
-        .card-header {
-            position: relative;
-            z-index: 2; /* Ensures text and other content appear above the background */
-        }
-
         .card-header {
             font-weight: 500;
             text-align: center;
@@ -68,6 +43,16 @@
             transition: background 0.2s ease-in-out;
         }
         .row-content:hover { background-color: #f0f4f8; }
+        
+        /* Background logo styling */
+        .card {
+            position: relative;
+            background-image: url('D7571412-A5EE-4724-8A8C-085831E662EB.png');
+            background-size: 200px;
+            background-position: center;
+            background-repeat: no-repeat;
+            opacity: 0.1; /* Control opacity for a soft look */
+        }
         
         /* Modern button styles */
         #professionalButton {
@@ -106,9 +91,76 @@
 
     <script>
         const translations = {
-            en: { /* English translations */ },
-            fr: { /* French translations */ },
-            ar: { /* Arabic translations */ }
+            en: {
+                basicInfoHeader: "Basic Information",
+                name: "Name",
+                lastName: "Last Name",
+                address: "Address",
+                emergencyContact: "Emergency Contact",
+                comment: "Comment",
+                professionalButton: "Medical Information",
+                professionalInfoHeader: "Medical Information",
+                illnesses: "Known Illnesses",
+                medications: "Medications",
+                allergies: "Allergies",
+                bloodType: "Blood Type",
+                alertAccessDenied: "Incorrect password. Access denied.",
+                nameValue: "Foulen",
+                lastNameValue: "Ben Foulen",
+                addressValue: "23 Bizerte - Tunisia",
+                emergencyContactValue: "+123456789",
+                commentValue: "Please contact immediately in case of emergency.",
+                illnessesValue: "Diabetes, Hypertension",
+                medicationsValue: "Metformin, Lisinopril",
+                allergiesValue: "Penicillin",
+                bloodTypeValue: "O+"
+            },
+            fr: {
+                basicInfoHeader: "Informations de Base",
+                name: "Nom",
+                lastName: "Prénom",
+                address: "Adresse",
+                emergencyContact: "Contact d'Urgence",
+                comment: "Commentaire",
+                professionalButton: "Informations Médicales",
+                professionalInfoHeader: "Informations Médicales",
+                illnesses: "Maladies Connues",
+                medications: "Médicaments",
+                allergies: "Allergies",
+                bloodType: "Groupe Sanguin",
+                nameValue: "Foulen",
+                lastNameValue: "Ben Foulen",
+                addressValue: "23 Bizerte - Tunisie",
+                emergencyContactValue: "+123456789",
+                commentValue: "Veuillez contacter immédiatement en cas d'urgence.",
+                illnessesValue: "Diabète, Hypertension",
+                medicationsValue: "Metformin, Lisinopril",
+                allergiesValue: "Pénicilline",
+                bloodTypeValue: "O+"
+            },
+            ar: {
+                basicInfoHeader: "معلومات أساسية",
+                name: "الاسم",
+                lastName: "اللقب",
+                address: "العنوان",
+                emergencyContact: "جهة اتصال للطوارئ",
+                comment: "التعليق",
+                professionalButton: "معلومات طبية",
+                professionalInfoHeader: "معلومات طبية",
+                illnesses: "الأمراض المعروفة",
+                medications: "الأدوية",
+                allergies: "الحساسية",
+                bloodType: "فصيلة الدم",
+                nameValue: "فلان",
+                lastNameValue: "بن فلان",
+                addressValue: "23 بنزرت - تونس",
+                emergencyContactValue: "+123456789",
+                commentValue: "يرجى الاتصال على الفور في حالة الطوارئ.",
+                illnessesValue: "السكري، ارتفاع ضغط الدم",
+                medicationsValue: "ميتفورمين، ليسينوبريل",
+                allergiesValue: "البنسلين",
+                bloodTypeValue: "O+"
+            }
         };
 
         function changeLanguage(language) {
@@ -195,4 +247,8 @@
     </script>
 
     <!-- Bootstrap JS and dependencies -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
