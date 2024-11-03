@@ -13,12 +13,12 @@
         .flag { width: 50px; margin-top: 20px; }
         .content { margin-top: 50px; }
         #professionalInfo { display: none; }
-        
+
         /* Right alignment for Arabic content */
-        .rtl { text-align: right; direction: rtl; }
+        .rtl .content-text { text-align: right; }
         
         /* Left alignment for English/French content */
-        .ltr { text-align: left; direction: ltr; }
+        .ltr .content-text { text-align: left; }
     </style>
 <script>
     const translations = {
@@ -147,24 +147,24 @@
             <div id="basicInfoHeader" class="card-header bg-primary text-white"></div>
             <div class="card-body">
                 <div class="row">
-                    <div class="col-6 font-weight-bold" id="nameLabel"></div>
-                    <div class="col-6" id="nameValue"></div>
+                    <div class="col-6 font-weight-bold content-text" id="nameLabel"></div>
+                    <div class="col-6 content-text" id="nameValue"></div>
                 </div>
                 <div class="row">
-                    <div class="col-6 font-weight-bold" id="lastNameLabel"></div>
-                    <div class="col-6" id="lastNameValue"></div>
+                    <div class="col-6 font-weight-bold content-text" id="lastNameLabel"></div>
+                    <div class="col-6 content-text" id="lastNameValue"></div>
                 </div>
                 <div class="row">
-                    <div class="col-6 font-weight-bold" id="addressLabel"></div>
-                    <div class="col-6" id="addressValue"></div>
+                    <div class="col-6 font-weight-bold content-text" id="addressLabel"></div>
+                    <div class="col-6 content-text" id="addressValue"></div>
                 </div>
                 <div class="row">
-                    <div class="col-6 font-weight-bold" id="emergencyContactLabel"></div>
-                    <div class="col-6" id="emergencyContactValue"></div>
+                    <div class="col-6 font-weight-bold content-text" id="emergencyContactLabel"></div>
+                    <div class="col-6 content-text" id="emergencyContactValue"></div>
                 </div>
                 <div class="row">
-                    <div class="col-6 font-weight-bold" id="commentLabel"></div>
-                    <div class="col-6" id="commentValue"></div>
+                    <div class="col-6 font-weight-bold content-text" id="commentLabel"></div>
+                    <div class="col-6 content-text" id="commentValue"></div>
                 </div>
             </div>
         </div>
@@ -175,20 +175,20 @@
             <div id="professionalInfoHeader" class="card-header bg-danger text-white"></div>
             <div class="card-body">
                 <div class="row">
-                    <div class="col-6 font-weight-bold" id="illnessesLabel"></div>
-                    <div class="col-6" id="illnessesValue"></div>
+                    <div class="col-6 font-weight-bold content-text" id="illnessesLabel"></div>
+                    <div class="col-6 content-text" id="illnessesValue"></div>
                 </div>
                 <div class="row">
-                    <div class="col-6 font-weight-bold" id="medicationsLabel"></div>
-                    <div class="col-6" id="medicationsValue"></div>
+                    <div class="col-6 font-weight-bold content-text" id="medicationsLabel"></div>
+                    <div class="col-6 content-text" id="medicationsValue"></div>
                 </div>
                 <div class="row">
-                    <div class="col-6 font-weight-bold" id="allergiesLabel"></div>
-                    <div class="col-6" id="allergiesValue"></div>
+                    <div class="col-6 font-weight-bold content-text" id="allergiesLabel"></div>
+                    <div class="col-6 content-text" id="allergiesValue"></div>
                 </div>
                 <div class="row">
-                    <div class="col-6 font-weight-bold" id="bloodTypeLabel"></div>
-                    <div class="col-6" id="bloodTypeValue"></div>
+                    <div class="col-6 font-weight-bold content-text" id="bloodTypeLabel"></div>
+                    <div class="col-6 content-text" id="bloodTypeValue"></div>
                 </div>
             </div>
         </div>
