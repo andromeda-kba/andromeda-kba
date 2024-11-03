@@ -159,23 +159,23 @@
             document.getElementById("professionalButton").textContent = textElements.professionalButton;
             document.getElementById("professionalInfoHeader").textContent = textElements.professionalInfoHeader;
 
-            document.getElementById("nameLabel").textContent = textElements.name;
+            document.getElementById("nameLabel").innerHTML = `<strong>${textElements.name}</strong>`;
             document.getElementById("nameValue").textContent = textElements.nameValue;
-            document.getElementById("lastNameLabel").textContent = textElements.lastName;
+            ocument.getElementById("lastNameLabel").innerHTML = `<strong>${textElements.lastName}</strong>`;
             document.getElementById("lastNameValue").textContent = textElements.lastNameValue;
-            document.getElementById("addressLabel").textContent = textElements.address;
+            document.getElementById("addressLabel").innerHTML = `<strong>${textElements.address}</strong>`;
             document.getElementById("addressValue").textContent = textElements.addressValue;
-            document.getElementById("emergencyContactLabel").textContent = textElements.emergencyContact;
+            document.getElementById("emergencyContactLabel").innerHTML = `<strong>${textElements.emergencyContact}</strong>`;
             document.getElementById("emergencyContactValue").textContent = textElements.emergencyContactValue;
-            document.getElementById("commentLabel").textContent = textElements.comment;
+            document.getElementById("commentLabel").innerHTML = `<strong>${textElements.comment}</strong>`;
             document.getElementById("commentValue").textContent = textElements.commentValue;
-            document.getElementById("illnessesLabel").textContent = textElements.illnesses;
+            document.getElementById("illnessesLabel").innerHTML = `<strong>${textElements.illnesses}</strong>`;
             document.getElementById("illnessesValue").textContent = textElements.illnessesValue;
-            document.getElementById("medicationsLabel").textContent = textElements.medications;
+            document.getElementById("medicationsLabel").innerHTML = `<strong>${textElements.medications}</strong>`;
             document.getElementById("medicationsValue").textContent = textElements.medicationsValue;
-            document.getElementById("allergiesLabel").textContent = textElements.allergies;
+            document.getElementById("allergiesLabel").innerHTML = `<strong>${textElements.allergies}</strong>`;
             document.getElementById("allergiesValue").textContent = textElements.allergiesValue;
-            document.getElementById("bloodTypeLabel").textContent = textElements.bloodType;
+            document.getElementById("bloodTypeLabel").innerHTML = `<strong>${textElements.bloodType}</strong>`;
             document.getElementById("bloodTypeValue").textContent = textElements.bloodTypeValue;
 
             document.body.classList.toggle("rtl", language === "ar");
