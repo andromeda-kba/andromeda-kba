@@ -13,11 +13,23 @@
         .flag { width: 50px; margin-top: 20px; }
         .content { margin-top: 50px; }
         #professionalInfo { display: none; }
-        .text-right { direction: rtl; }
+        
+        /* Right alignment for Arabic content */
+        .rtl { text-align: right; direction: rtl; }
+        
+        /* Left alignment for English/French content */
+        .ltr { text-align: left; direction: ltr; }
+
+        /* Center vertically within card */
+        .card-body p {
+            display: flex;
+            align-items: center;
+            height: 100%;
+            margin: 0;
+        }
     </style>
 
     <script>
-        // Translations for each field in different languages
         const translations = {
             en: {
                 basicInfoHeader: "Basic Information",
@@ -66,7 +78,6 @@
             }
         };
 
-        // Function to change language based on selection
         function changeLanguage(language) {
             const textElements = translations[language];
             document.getElementById("basicInfoHeader").textContent = textElements.basicInfoHeader;
@@ -82,29 +93,27 @@
             document.getElementById("allergies").textContent = textElements.allergies + ": Penicillin";
             document.getElementById("bloodType").textContent = textElements.bloodType + ": O+";
 
-            // Apply right-aligned text if Arabic is selected
-            document.body.classList.toggle("text-right", language === "ar");
+            document.body.classList.toggle("rtl", language === "ar");
+            document.body.classList.toggle("ltr", language !== "ar");
         }
 
-        // Function to handle the "I am a professional" button click
         function showProfessionalInfo() {
             const password = prompt("Enter professional access password:");
-            if (password === "YourDemoPassword") { // Replace with your desired password
+            if (password === "YourDemoPassword") {
                 document.getElementById("professionalInfo").style.display = "block";
             } else {
                 alert(translations[currentLang].alertAccessDenied);
             }
         }
 
-        let currentLang = "ar"; // Default language
+        let currentLang = "ar";
 
-        // Initialize default language
         document.addEventListener("DOMContentLoaded", function() {
             changeLanguage(currentLang);
         });
     </script>
 </head>
-<body class="text-center text-right">
+<body class="text-center rtl">
 
     <!-- Language Selection Dropdown -->
     <div class="mt-3">
@@ -122,7 +131,7 @@
         <!-- Basic Information Section -->
         <div id="basicInfo" class="card border-primary mb-3" style="max-width: 500px; margin: auto;">
             <div id="basicInfoHeader" class="card-header bg-primary text-white"></div>
-            <div class="card-body text-left">
+            <div class="card-body">
                 <p id="name"></p>
                 <p id="lastName"></p>
                 <p id="address"></p>
@@ -137,7 +146,7 @@
         <!-- Professional Information Section (hidden by default) -->
         <div id="professionalInfo" class="card border-danger mt-3" style="max-width: 500px; margin: auto;">
             <div id="professionalInfoHeader" class="card-header bg-danger text-white"></div>
-            <div class="card-body text-left">
+            <div class="card-body">
                 <p id="illnesses"></p>
                 <p id="medications"></p>
                 <p id="allergies"></p>
@@ -146,7 +155,7 @@
         </div>
     </div>
 
-    <!-- Bootstrap JS and dependencies (optional for Bootstrap components) -->
+    <!-- Bootstrap JS and dependencies -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
