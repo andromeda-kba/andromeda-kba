@@ -28,90 +28,82 @@
             margin: 0;
         }
     </style>
-
-    <script>
-        const translations = {
-            en: {
-                basicInfoHeader: "Basic Information",
-                name: "Name",
-                lastName: "Last Name",
-                address: "Address",
-                emergencyContact: "Emergency Contact",
-                comment: "Please contact immediately in case of emergency.",
-                professionalButton: "Medical Information",
-                professionalInfoHeader: "Medical Information",
-                illnesses: "Known Illnesses",
-                medications: "Medications",
-                allergies: "Allergies",
-                bloodType: "Blood Type",
-                alertAccessDenied: "Incorrect password. Access denied."
-            },
-            fr: {
-                basicInfoHeader: "Informations de Base",
-                name: "Nom",
-                lastName: "Prénom",
-                address: "Adresse",
-                emergencyContact: "Contact d'Urgence",
-                comment: "Veuillez contacter immédiatement en cas d'urgence.",
-                professionalButton: "Informations Médicales",
-                professionalInfoHeader: "Informations Médicales",
-                illnesses: "Maladies Connues",
-                medications: "Médicaments",
-                allergies: "Allergies",
-                bloodType: "Groupe Sanguin",
-                alertAccessDenied: "Mot de passe incorrect. Accès refusé."
-            },
-            ar: {
-                basicInfoHeader: "معلومات أساسية",
-                name: "الاسم",
-                lastName: "اللقب",
-                address: "العنوان",
-                emergencyContact: "جهة اتصال للطوارئ",
-                comment: "يرجى الاتصال على الفور في حالة الطوارئ.",
-                professionalButton: "معلومات طبية",
-                professionalInfoHeader: "معلومات طبية",
-                illnesses: "الأمراض المعروفة",
-                medications: "الأدوية",
-                allergies: "الحساسية",
-                bloodType: "فصيلة الدم",
-                alertAccessDenied: "كلمة المرور غير صحيحة. تم رفض الوصول."
-            }
-        };
-
-        function changeLanguage(language) {
-            const textElements = translations[language];
-            document.getElementById("basicInfoHeader").textContent = textElements.basicInfoHeader;
-            document.getElementById("name").textContent = textElements.name + ": Foulen";
-            document.getElementById("lastName").textContent = textElements.lastName + ": Ben Foulen";
-            document.getElementById("address").textContent = textElements.address + ": 23 Bizerte - Tunisia";
-            document.getElementById("emergencyContact").textContent = textElements.emergencyContact + ": +123456789";
-            document.getElementById("comment").textContent = textElements.comment;
-            document.getElementById("professionalButton").textContent = textElements.professionalButton;
-            document.getElementById("professionalInfoHeader").textContent = textElements.professionalInfoHeader;
-            document.getElementById("illnesses").textContent = textElements.illnesses + ": Diabetes, Hypertension";
-            document.getElementById("medications").textContent = textElements.medications + ": Metformin, Lisinopril";
-            document.getElementById("allergies").textContent = textElements.allergies + ": Penicillin";
-            document.getElementById("bloodType").textContent = textElements.bloodType + ": O+";
-
-            document.body.classList.toggle("rtl", language === "ar");
-            document.body.classList.toggle("ltr", language !== "ar");
+<script>
+    const translations = {
+        en: {
+            basicInfoHeader: "Basic Information",
+            name: "Name: Foulen",
+            lastName: "Last Name: Ben Foulen",
+            address: "Address: 23 Bizerte - Tunisia",
+            emergencyContact: "Emergency Contact: +123456789",
+            comment: "Please contact immediately in case of emergency.",
+            professionalButton: "Medical Information",
+            professionalInfoHeader: "Medical Information",
+            illnesses: "Known Illnesses: Diabetes, Hypertension",
+            medications: "Medications: Metformin, Lisinopril",
+            allergies: "Allergies: Penicillin",
+            bloodType: "Blood Type: O+",
+            alertAccessDenied: "Incorrect password. Access denied."
+        },
+        fr: {
+            basicInfoHeader: "Informations de Base",
+            name: "Nom: Foulen",
+            lastName: "Prénom: Ben Foulen",
+            address: "Adresse: 23 Bizerte - Tunisie",
+            emergencyContact: "Contact d'Urgence: +123456789",
+            comment: "Veuillez contacter immédiatement en cas d'urgence.",
+            professionalButton: "Informations Médicales",
+            professionalInfoHeader: "Informations Médicales",
+            illnesses: "Maladies Connues: Diabète, Hypertension",
+            medications: "Médicaments: Metformin, Lisinopril",
+            allergies: "Allergies: Pénicilline",
+            bloodType: "Groupe Sanguin: O+",
+            alertAccessDenied: "Mot de passe incorrect. Accès refusé."
+        },
+        ar: {
+            basicInfoHeader: "معلومات أساسية",
+            name: "الاسم: فلان",
+            lastName: "اللقب: بن فلان",
+            address: "العنوان: 23 بنزرت - تونس",
+            emergencyContact: "جهة اتصال للطوارئ: +123456789",
+            comment: "يرجى الاتصال على الفور في حالة الطوارئ.",
+            professionalButton: "معلومات طبية",
+            professionalInfoHeader: "معلومات طبية",
+            illnesses: "الأمراض المعروفة: السكري، ارتفاع ضغط الدم",
+            medications: "الأدوية: ميتفورمين، ليسينوبريل",
+            allergies: "الحساسية: البنسلين",
+            bloodType: "فصيلة الدم: O+",
+            alertAccessDenied: "كلمة المرور غير صحيحة. تم رفض الوصول."
         }
+    };
 
-        function showProfessionalInfo() {
-            const password = prompt("Enter professional access password:");
-            if (password === "YourDemoPassword") {
-                document.getElementById("professionalInfo").style.display = "block";
-            } else {
-                alert(translations[currentLang].alertAccessDenied);
-            }
-        }
+    function changeLanguage(language) {
+        const textElements = translations[language];
+        
+        document.getElementById("basicInfoHeader").textContent = textElements.basicInfoHeader;
+        document.getElementById("name").textContent = textElements.name;
+        document.getElementById("lastName").textContent = textElements.lastName;
+        document.getElementById("address").textContent = textElements.address;
+        document.getElementById("emergencyContact").textContent = textElements.emergencyContact;
+        document.getElementById("comment").textContent = textElements.comment;
+        document.getElementById("professionalButton").textContent = textElements.professionalButton;
+        document.getElementById("professionalInfoHeader").textContent = textElements.professionalInfoHeader;
+        document.getElementById("illnesses").textContent = textElements.illnesses;
+        document.getElementById("medications").textContent = textElements.medications;
+        document.getElementById("allergies").textContent = textElements.allergies;
+        document.getElementById("bloodType").textContent = textElements.bloodType;
 
-        let currentLang = "ar";
+        // Adjust text alignment based on language
+        document.body.classList.toggle("text-right", language === "ar");
+    }
 
-        document.addEventListener("DOMContentLoaded", function() {
-            changeLanguage(currentLang);
-        });
-    </script>
+    let currentLang = "ar"; // Default language
+
+    document.addEventListener("DOMContentLoaded", function() {
+        changeLanguage(currentLang);
+    });
+</script>
+
 </head>
 <body class="text-center rtl">
 
