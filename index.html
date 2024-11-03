@@ -19,61 +19,78 @@
         
         /* Left alignment for English/French content */
         .ltr { text-align: left; direction: ltr; }
-
-        /* Center vertically within card */
-        .card-body p {
-            display: flex;
-            align-items: center;
-            height: 100%;
-            margin: 0;
-        }
     </style>
 <script>
     const translations = {
         en: {
             basicInfoHeader: "Basic Information",
-            name: "Name: Foulen",
-            lastName: "Last Name: Ben Foulen",
-            address: "Address: 23 Bizerte - Tunisia",
-            emergencyContact: "Emergency Contact: +123456789",
-            comment: "Please contact immediately in case of emergency.",
+            name: "Name",
+            lastName: "Last Name",
+            address: "Address",
+            emergencyContact: "Emergency Contact",
+            comment: "Comment",
             professionalButton: "Medical Information",
             professionalInfoHeader: "Medical Information",
-            illnesses: "Known Illnesses: Diabetes, Hypertension",
-            medications: "Medications: Metformin, Lisinopril",
-            allergies: "Allergies: Penicillin",
-            bloodType: "Blood Type: O+",
-            alertAccessDenied: "Incorrect password. Access denied."
+            illnesses: "Known Illnesses",
+            medications: "Medications",
+            allergies: "Allergies",
+            bloodType: "Blood Type",
+            alertAccessDenied: "Incorrect password. Access denied.",
+            nameValue: "Foulen",
+            lastNameValue: "Ben Foulen",
+            addressValue: "23 Bizerte - Tunisia",
+            emergencyContactValue: "+123456789",
+            commentValue: "Please contact immediately in case of emergency.",
+            illnessesValue: "Diabetes, Hypertension",
+            medicationsValue: "Metformin, Lisinopril",
+            allergiesValue: "Penicillin",
+            bloodTypeValue: "O+"
         },
         fr: {
             basicInfoHeader: "Informations de Base",
-            name: "Nom: Foulen",
-            lastName: "Prénom: Ben Foulen",
-            address: "Adresse: 23 Bizerte - Tunisie",
-            emergencyContact: "Contact d'Urgence: +123456789",
-            comment: "Veuillez contacter immédiatement en cas d'urgence.",
+            name: "Nom",
+            lastName: "Prénom",
+            address: "Adresse",
+            emergencyContact: "Contact d'Urgence",
+            comment: "Commentaire",
             professionalButton: "Informations Médicales",
             professionalInfoHeader: "Informations Médicales",
-            illnesses: "Maladies Connues: Diabète, Hypertension",
-            medications: "Médicaments: Metformin, Lisinopril",
-            allergies: "Allergies: Pénicilline",
-            bloodType: "Groupe Sanguin: O+",
-            alertAccessDenied: "Mot de passe incorrect. Accès refusé."
+            illnesses: "Maladies Connues",
+            medications: "Médicaments",
+            allergies: "Allergies",
+            bloodType: "Groupe Sanguin",
+            nameValue: "Foulen",
+            lastNameValue: "Ben Foulen",
+            addressValue: "23 Bizerte - Tunisie",
+            emergencyContactValue: "+123456789",
+            commentValue: "Veuillez contacter immédiatement en cas d'urgence.",
+            illnessesValue: "Diabète, Hypertension",
+            medicationsValue: "Metformin, Lisinopril",
+            allergiesValue: "Pénicilline",
+            bloodTypeValue: "O+"
         },
         ar: {
             basicInfoHeader: "معلومات أساسية",
-            name: "الاسم: فلان",
-            lastName: "اللقب: بن فلان",
-            address: "العنوان: 23 بنزرت - تونس",
-            emergencyContact: "جهة اتصال للطوارئ: +123456789",
-            comment: "يرجى الاتصال على الفور في حالة الطوارئ.",
+            name: "الاسم",
+            lastName: "اللقب",
+            address: "العنوان",
+            emergencyContact: "جهة اتصال للطوارئ",
+            comment: "التعليق",
             professionalButton: "معلومات طبية",
             professionalInfoHeader: "معلومات طبية",
-            illnesses: "الأمراض المعروفة: السكري، ارتفاع ضغط الدم",
-            medications: "الأدوية: ميتفورمين، ليسينوبريل",
-            allergies: "الحساسية: البنسلين",
-            bloodType: "فصيلة الدم: O+",
-            alertAccessDenied: "كلمة المرور غير صحيحة. تم رفض الوصول."
+            illnesses: "الأمراض المعروفة",
+            medications: "الأدوية",
+            allergies: "الحساسية",
+            bloodType: "فصيلة الدم",
+            nameValue: "فلان",
+            lastNameValue: "بن فلان",
+            addressValue: "23 بنزرت - تونس",
+            emergencyContactValue: "+123456789",
+            commentValue: "يرجى الاتصال على الفور في حالة الطوارئ.",
+            illnessesValue: "السكري، ارتفاع ضغط الدم",
+            medicationsValue: "ميتفورمين، ليسينوبريل",
+            allergiesValue: "البنسلين",
+            bloodTypeValue: "O+"
         }
     };
 
@@ -81,75 +98,116 @@
         const textElements = translations[language];
         
         document.getElementById("basicInfoHeader").textContent = textElements.basicInfoHeader;
-        document.getElementById("name").textContent = textElements.name;
-        document.getElementById("lastName").textContent = textElements.lastName;
-        document.getElementById("address").textContent = textElements.address;
-        document.getElementById("emergencyContact").textContent = textElements.emergencyContact;
-        document.getElementById("comment").textContent = textElements.comment;
         document.getElementById("professionalButton").textContent = textElements.professionalButton;
         document.getElementById("professionalInfoHeader").textContent = textElements.professionalInfoHeader;
-        document.getElementById("illnesses").textContent = textElements.illnesses;
-        document.getElementById("medications").textContent = textElements.medications;
-        document.getElementById("allergies").textContent = textElements.allergies;
-        document.getElementById("bloodType").textContent = textElements.bloodType;
 
-        // Adjust text alignment based on language
-        document.body.classList.toggle("text-right", language === "ar");
+        document.getElementById("nameLabel").textContent = textElements.name;
+        document.getElementById("nameValue").textContent = textElements.nameValue;
+        document.getElementById("lastNameLabel").textContent = textElements.lastName;
+        document.getElementById("lastNameValue").textContent = textElements.lastNameValue;
+        document.getElementById("addressLabel").textContent = textElements.address;
+        document.getElementById("addressValue").textContent = textElements.addressValue;
+        document.getElementById("emergencyContactLabel").textContent = textElements.emergencyContact;
+        document.getElementById("emergencyContactValue").textContent = textElements.emergencyContactValue;
+        document.getElementById("commentLabel").textContent = textElements.comment;
+        document.getElementById("commentValue").textContent = textElements.commentValue;
+        document.getElementById("illnessesLabel").textContent = textElements.illnesses;
+        document.getElementById("illnessesValue").textContent = textElements.illnessesValue;
+        document.getElementById("medicationsLabel").textContent = textElements.medications;
+        document.getElementById("medicationsValue").textContent = textElements.medicationsValue;
+        document.getElementById("allergiesLabel").textContent = textElements.allergies;
+        document.getElementById("allergiesValue").textContent = textElements.allergiesValue;
+        document.getElementById("bloodTypeLabel").textContent = textElements.bloodType;
+        document.getElementById("bloodTypeValue").textContent = textElements.bloodTypeValue;
+
+        document.body.classList.toggle("rtl", language === "ar");
+        document.body.classList.toggle("ltr", language !== "ar");
     }
 
-    let currentLang = "ar"; // Default language
-
     document.addEventListener("DOMContentLoaded", function() {
-        changeLanguage(currentLang);
+        changeLanguage("ar");
     });
 </script>
 
 </head>
 <body class="text-center rtl">
 
-    <!-- Language Selection Dropdown -->
     <div class="mt-3">
-        <select onchange="changeLanguage(this.value); currentLang = this.value;" class="custom-select w-auto">
+        <select onchange="changeLanguage(this.value);" class="custom-select w-auto">
             <option value="ar" selected>العربية</option>
             <option value="en">English</option>
             <option value="fr">Français</option>
         </select>
     </div>
 
-    <!-- Tunisian Flag -->
     <img src="https://upload.wikimedia.org/wikipedia/commons/c/ce/Flag_of_Tunisia.svg" alt="Tunisian Flag" class="flag">
 
     <div class="container content">
-        <!-- Basic Information Section -->
         <div id="basicInfo" class="card border-primary mb-3" style="max-width: 500px; margin: auto;">
             <div id="basicInfoHeader" class="card-header bg-primary text-white"></div>
             <div class="card-body">
-                <p id="name"></p>
-                <p id="lastName"></p>
-                <p id="address"></p>
-                <p id="emergencyContact"></p>
-                <p id="comment"></p>
+                <div class="row">
+                    <div class="col-6 font-weight-bold" id="nameLabel"></div>
+                    <div class="col-6" id="nameValue"></div>
+                </div>
+                <div class="row">
+                    <div class="col-6 font-weight-bold" id="lastNameLabel"></div>
+                    <div class="col-6" id="lastNameValue"></div>
+                </div>
+                <div class="row">
+                    <div class="col-6 font-weight-bold" id="addressLabel"></div>
+                    <div class="col-6" id="addressValue"></div>
+                </div>
+                <div class="row">
+                    <div class="col-6 font-weight-bold" id="emergencyContactLabel"></div>
+                    <div class="col-6" id="emergencyContactValue"></div>
+                </div>
+                <div class="row">
+                    <div class="col-6 font-weight-bold" id="commentLabel"></div>
+                    <div class="col-6" id="commentValue"></div>
+                </div>
             </div>
         </div>
 
-        <!-- Professional Access Button -->
         <button onclick="showProfessionalInfo()" id="professionalButton" class="btn btn-danger mt-3"></button>
 
-        <!-- Professional Information Section (hidden by default) -->
         <div id="professionalInfo" class="card border-danger mt-3" style="max-width: 500px; margin: auto;">
             <div id="professionalInfoHeader" class="card-header bg-danger text-white"></div>
             <div class="card-body">
-                <p id="illnesses"></p>
-                <p id="medications"></p>
-                <p id="allergies"></p>
-                <p id="bloodType"></p>
+                <div class="row">
+                    <div class="col-6 font-weight-bold" id="illnessesLabel"></div>
+                    <div class="col-6" id="illnessesValue"></div>
+                </div>
+                <div class="row">
+                    <div class="col-6 font-weight-bold" id="medicationsLabel"></div>
+                    <div class="col-6" id="medicationsValue"></div>
+                </div>
+                <div class="row">
+                    <div class="col-6 font-weight-bold" id="allergiesLabel"></div>
+                    <div class="col-6" id="allergiesValue"></div>
+                </div>
+                <div class="row">
+                    <div class="col-6 font-weight-bold" id="bloodTypeLabel"></div>
+                    <div class="col-6" id="bloodTypeValue"></div>
+                </div>
             </div>
         </div>
     </div>
 
+    <script>
+        function showProfessionalInfo() {
+            let password = prompt("Enter Password:");
+            if (password === "1234") {
+                document.getElementById("professionalInfo").style.display = "block";
+            } else {
+                alert(translations[document.querySelector("select").value].alertAccessDenied);
+            }
+        }
+    </script>
+
     <!-- Bootstrap JS and dependencies -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
